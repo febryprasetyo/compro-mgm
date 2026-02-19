@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PT. Multi Gas Medika</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLE & RESET --- */
+        :root {
+            --primary: #0056b3;       /* Biru Medis Utama */
+            --primary-dark: #003d80;  /* Biru Gelap untuk Hover */
+            --accent: #00c2cb;        /* Cyan untuk Aksen Segar */
+            --text-dark: #1e293b;     /* Warna Teks Gelap (Bukan Hitam Pekat) */
+            --text-light: #64748b;    /* Warna Teks Abu-abu */
+            --bg-light: #f8fafc;      /* Background Abu-abu Sangat Muda */
+            --white: #ffffff;
+            --shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .section-tag {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.875rem;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: rgba(0, 86, 179, 0.1);
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                        url('https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            padding: 100px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Elemen Dekorasi di belakang gambar */
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            top: 20px;
+            left: -20px;
+            border-radius: 20px;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* --- MILESTONES (STATS) --- */
+        .stats {
+            background-color: var(--primary);
+            padding: 80px 0;
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* --- QUALITY SECTION --- */
+        .quality {
+            padding: 100px 0;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
+
+        .quality-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quality h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .quality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --- VISI MISI --- */
+        .visi-misi {
+            padding: 100px 0;
+        }
+
+        .visi-misi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vm-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vm-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 86, 179, 0.1);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .vm-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 86, 179, 0.1);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .vm-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .mission-list {
+            list-style: none;
+        }
+
+        .mission-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-light);
+        }
+
+        .mission-list li i {
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, #002d5e 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary);
+        }
+        .btn-white:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--white);
+        }
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* --- ANIMATION --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        
+        /* Tablet & Laptop Kecil */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-grid { gap: 40px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+
+        /* HP (Mobile) */
+        @media (max-width: 768px) {
+            .hero { height: auto; padding: 100px 20px; }
+            .hero h1 { font-size: 2rem; }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { order: -1; margin-bottom: 20px; }
+            .about-image::before { left: 10px; top: 10px; }
+            
+            .stats-grid { grid-template-columns: 1fr; }
+            
+            .visi-misi-grid { grid-template-columns: 1fr; }
+            
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <span style="color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">About Us</span>
+            <h1>Membangun Kemandirian<br>Oksigen Medis Indonesia</h1>
+            <p>Mitra terpercaya bagi fasilitas kesehatan dalam penyediaan Oksigen Generator berkualitas tinggi dan efisien.</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Medigas Oxygen Generator Installation">
+            </div>
+            <div class="about-text">
+                <span class="section-tag">Siapa Kami</span>
+                <h2>Solusi Cerdas untuk Kebutuhan Oksigen Rumah Sakit</h2>
+                <p>PT. Multi Gas Medika hadir sebagai jawaban atas tantangan ketersediaan oksigen medis yang sering dihadapi fasilitas kesehatan. Melalui sistem <strong>Kerjasama Operasi (KSO)</strong>, kami menyediakan unit penghasil oksigen medis (PSA) tanpa membebani rumah sakit dengan biaya investasi awal.</p>
+                <p>Kami telah dipercaya oleh lebih dari 80 RSUD untuk mentransformasi sistem gas medis mereka menjadi mandiri, efisien, dan tidak lagi bergantung pada pasokan eksternal yang fluktuatif.</p>
+                
+                <div style="margin-top: 30px; border-left: 4px solid var(--accent); padding-left: 20px;">
+                    <p style="font-style: italic; color: var(--text-dark); font-weight: 600; margin: 0;">"Misi kami adalah menjamin tidak ada pasien yang kekurangan oksigen karena masalah distribusi."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-hospital"></i></div>
+                <div class="stat-number">80+</div>
+                <div class="stat-label">RSUD Bekerjasama</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-cogs"></i></div>
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Mesin Beroperasi</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-wind"></i></div>
+                <div class="stat-number">90%+</div>
+                <div class="stat-label">Kemurnian Oksigen</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Dukungan Teknis</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quality">
+        <div class="container quality-content">
+            <span class="section-tag">Standar Kami</span>
+            <h2>Kualitas Tanpa Kompromi untuk Keselamatan Pasien</h2>
+            <p style="font-size: 1.1rem; color: var(--text-light);">
+                Oksigen adalah elemen vital. Mesin kami didesain presisi untuk beroperasi 24 jam nonstop dengan output kemurnian stabil >90%, sepenuhnya mematuhi <strong>Permenkes No. 4 Tahun 2016</strong>.
+            </p>
+            <div class="quality-badge">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent);"></i> Medical Grade Certified
+            </div>
+        </div>
+    </section>
+
+    <section class="visi-misi">
+        <div class="container">
+            <div class="visi-misi-grid">
+                <div class="vm-card">
+                    <div class="vm-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3>Visi Kami</h3>
+                    <p style="color: var(--text-light);">Memberikan solusi terbaik dalam sistem gas medis, terus berinovasi, serta menciptakan <strong>independensi total</strong> bagi rumah sakit dalam pemenuhan kebutuhan gas medisnya.</p>
+                </div>
+                
+                <div class="vm-card">
+                    <div class="vm-icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3>Misi Kami</h3>
+                    <ul class="mission-list">
+                        <li><i class="fa-solid fa-check"></i> Memberikan alternatif pasokan oksigen yang ekonomis.</li>
+                        <li><i class="fa-solid fa-check"></i> Mempromosikan standar internasional gas medis.</li>
+                        <li><i class="fa-solid fa-check"></i> Mengembangkan teknologi terbaik untuk kesehatan Indonesia.</li>
+                        <li><i class="fa-solid fa-check"></i> Menjadikan RSUD sebagai sentral pemenuhan gas medis wilayah.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 15px;">Siap Menjadi Rumah Sakit Mandiri?</h2>
+            <p style="opacity: 0.9; font-size: 1.1rem;">Diskusikan kebutuhan oksigen Anda dengan tim ahli kami. Tanpa biaya investasi awal.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/6281119221718" class="btn btn-white">
+                    <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+                </a>
+                <a href="tel:0214602345" class="btn btn-outline">
+                    <i class="fa-solid fa-phone"></i> Hubungi Kantor
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

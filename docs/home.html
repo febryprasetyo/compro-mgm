@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medigas - World Class Oxygen Provider Indonesia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- 1. CONFIG & VARIABLES --- */
+        :root {
+            /* Palette Warna Biru Medis */
+            --primary: #0056D2;       /* Biru Utama (Trust) */
+            --primary-dark: #003F9A;  /* Biru Gelap (Hover/Text) */
+            --accent: #00C2CB;        /* Cyan (Oxygen/Cleanliness) */
+            --text-main: #1E293B;     /* Slate Dark (Readability) */
+            --text-light: #64748B;    /* Slate Gray */
+            --bg-light: #F1F5F9;      /* Background Section */
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #0056D2 0%, #002B6B 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- 2. TOP BAR (INFO) --- */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 0.875rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-group a {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-group a:hover { color: var(--accent); }
+
+        /* --- 3. NAVBAR --- */
+        .navbar {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-cta:hover {
+            background: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* --- 4. HERO SECTION --- */
+        .hero {
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 43, 107, 0.7), rgba(0, 43, 107, 0.5)), 
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* --- 5. INTRO / PROCESS --- */
+        .intro {
+            padding: 100px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .intro-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* --- 6. FEATURES (USP) --- */
+        .features {
+            background-color: var(--bg-light);
+            padding: 100px 0;
+        }
+
+        .center-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 86, 210, 0.1);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 86, 210, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* --- 7. APPOINTMENT / CTA --- */
+        .appointment {
+            background: var(--gradient);
+            padding: 80px 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .appointment h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .appointment p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-white:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* --- 8. FOOTER --- */
+        footer {
+            background: #0f172a; /* Very Dark Blue */
+            color: #94a3b8;
+            padding: 80px 0 30px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #94a3b8; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--accent); }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            padding: 12px;
+            border-radius: 5px 0 0 5px;
+            border: none;
+            width: 100%;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .newsletter-form button:hover { background: var(--accent); }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.5rem; }
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .intro-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container { flex-direction: column; gap: 10px; text-align: center; }
+            .nav-menu { display: none; } /* Mobile Menu would go here */
+            .hero { text-align: center; justify-content: center; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <span>Jl. Rawa Terate II No.6, Jakarta Timur</span>
+            <div class="contact-group">
+                <a href="mailto:info@medigas.co.id"><i class="fa-solid fa-envelope"></i> info@medigas.co.id</a>
+                <a href="tel:0214602345"><i class="fa-solid fa-phone"></i> (021) 460 2345</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand">MEDIGAS</a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">About Us</a></li>
+                <li><a href="#" class="nav-link">Projects</a></li>
+                <li><a href="#" class="nav-link">News</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/6281119221718" class="btn-cta">Hubungi Sekarang</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <span class="tagline">World Class Oxygen Provider Indonesia</span>
+            <h1>Solusi Ketersediaan<br>Oksigen Medis Terpercaya</h1>
+            <p>PT. Multi Gas Medika hadir untuk menjamin ketersediaan oksigen medis secara berkesinambungan melalui penyediaan Oksigen Generator dengan metode Kerjasama Operasi (KSO).</p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="#features" class="btn-cta" style="border:none;">Pelajari Layanan</a>
+                <a href="tel:0214602345" class="btn-cta" style="background: transparent; border: 2px solid white;">(021) 460 2345</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container intro-grid">
+            <div class="intro-img">
+                <img src="https://images.unsplash.com/photo-1584036561566-b45238f2e121?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mesin Oksigen Medis">
+            </div>
+            <div class="intro-text">
+                <span class="section-title">Teknologi PSA Modern</span>
+                <h2>Oksigen (O2) Generator</h2>
+                <p>PT. Multi Gas Medika menawarkan alternatif dan solusi terhadap pemecahan permasalahan supply oksigen medis di Indonesia menggunakan sistem <strong>Pressure Swing Adsorption (PSA)</strong>.</p>
+                <p>Kami mentransformasi rumah sakit umum daerah menjadi unit pelayanan kesehatan yang mandiri dan independen dalam pemenuhan kebutuhannya, tanpa bergantung pada supplier luar.</p>
+                <a href="#" style="color: var(--primary); font-weight: 700;">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="center-heading">
+                <span class="section-title">Why You Choose Us</span>
+                <h2 style="font-size: 2.5rem; color: var(--text-main);">Keunggulan Layanan Kami</h2>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h3>Bebas Biaya Investasi</h3>
+                    <p>Tidak ada biaya investasi mesin, maintenance, service, dan penggantian sparepart bagi Rumah Sakit.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                    <h3>Mandiri & Independen</h3>
+                    <p>Rumah sakit tidak lagi bergantung dengan supplier luar dan menjadi mandiri dalam memenuhi kebutuhan oksigen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>Kemurnian >90%</h3>
+                    <p>Kualitas kemurnian oksigen >90% dengan mesin kompresor bebas pelumas, sesuai syarat Permenkes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-file-contract"></i></div>
+                    <h3>Kerjasama Fleksibel</h3>
+                    <p>Kontrak kerjasama yang fleksibel. Mesin dapat di-upgrade apabila kapasitas produksi sudah tidak mencukupi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-people-carry-box"></i></div>
+                    <h3>Bebas Penggunaan</h3>
+                    <p>Bebas penggunaan untuk kebutuhan rumah sakit sendiri maupun kebutuhan fasilitas kesehatan sekitar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-plug-circle-check"></i></div>
+                    <h3>Plug and Play</h3>
+                    <p>Mesin produksi oksigen ditempatkan dalam container yang mudah dipindahkan dengan sistem plug and play.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="appointment">
+        <div class="container">
+            <h2>Siap Meningkatkan Efisiensi Rumah Sakit?</h2>
+            <p>Kami dengan senang hati memberikan dukungan penuh kami melalui kontrak pemeliharaan atau layanan sesuai permintaan yang fleksibel.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/6281119221718" class="btn-white"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
+                <a href="tel:0214602345" class="btn-white" style="background: transparent; border: 2px solid white; color: white;"><i class="fa-solid fa-phone"></i> (021) 460 2345</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-brand">MEDIGAS</a>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+                        World Class Oxygen Provider Indonesia. Menjawab kebutuhan fasilitas pelayanan kesehatan akan ketersediaan oksigen medis secara berkesinambungan.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Menu</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Get In Touch</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fa-solid fa-location-dot" style="margin-right:8px;"></i> Jl. Rawa Terate II No.6</a></li>
+                        <li><a href="tel:0214602345"><i class="fa-solid fa-phone" style="margin-right:8px;"></i> (021) 460 2345</a></li>
+                        <li><a href="mailto:info@medigas.co.id"><i class="fa-solid fa-envelope" style="margin-right:8px;"></i> info@medigas.co.id</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="font-size: 0.85rem;">Subscribe untuk update terbaru.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter email address">
+                        <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                    <p style="font-size: 0.75rem; margin-top: 10px; color: #64748b;">* We never spam.</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2025 PT. Multi Gas Medika. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
